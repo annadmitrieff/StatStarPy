@@ -15,6 +15,7 @@ The code includes:
 
 ## Installation
 
+Will be supported shortly...
 ```
 pip install statstar
 ```
