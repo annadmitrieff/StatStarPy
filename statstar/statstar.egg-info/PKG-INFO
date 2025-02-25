@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: statstar
+Version: 0.1
+Summary: Python translation of the Fortran StatStar stellar modeling code.
+Author: Annie Dmitrieff
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
