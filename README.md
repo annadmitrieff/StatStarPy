@@ -4,7 +4,7 @@ A Python package for computing the internal structure of a zero-age main sequenc
 
 ## Description
 
-StatStar is a Python translation of the Fortran code from "An Introduction to Modern Astrophysics" by Carroll & Ostlie, translated by me (Annie Dmitrieff) It performs inward integration of the stellar structure equations to create a model of a star's interior, given basic parameters like mass, luminosity, and composition.
+StatStar is a Python translation of the Fortran code from "An Introduction to Modern Astrophysics" by Carroll & Ostlie, translated by me (Annie Dmitrieff). It performs inward integration of the stellar structure equations to create a model of a star's interior, given basic parameters like mass, luminosity, and composition.
 
 The code includes:
 - Hydrostatic equilibrium calculations
