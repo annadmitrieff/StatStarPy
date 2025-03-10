@@ -27,20 +27,63 @@ Basic example:
 ```python
 from statstar import StellarModel
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Create a model of the Sun
-sun = StellarModel(Msolar=1.0, Lsolar=1.0, Teff=5778, X=0.73, Z=0.02)
+# Example: A 1 solar mass model
+model = StellarModel(Msolar=1.0, Lsolar=11.0, Teff=5800, X=0.73, Z=0.02)
 
-# Compute the model
-sun.compute_model()
+if model.compute_model():
+    # Extract normalized radius and temperature profile...
+    r_norm = np.array(model.results['r']) / model.Rs
+    T = np.array(model.results['T'])
+    rho = np.array(model.results['rho'])
+    P = np.array(model.results['P'])
+    mass_fraction = 1 - np.array(model.results['M_r'])
+    
+    # Plot temperature profile!
+    plt.figure(figsize=(10, 6))
+    plt.plot(r_norm, T, 'r-', linewidth=2)
+    plt.xlabel('r/R', fontsize=12)
+    plt.ylabel('Temperature (K)', fontsize=12)
+    plt.title('Temperature Profile for a Solar Mass Star', fontsize=14)
+    plt.grid(True)
+    plt.yscale('log')
+    plt.show()
 
-# Plot the structure
-sun.plot_structure()
-plt.show()
+    # Plot density profile!
+    plt.figure(figsize=(10, 6))
+    plt.plot(r_norm, rho, 'b-', linewidth=2)
+    plt.xlabel('r/R', fontsize=12)
+    plt.ylabel('Density (kg/m^3)', fontsize=12)
+    plt.title('Density Profile for a Solar Mass Star', fontsize=14)
+    plt.grid(True)
+    plt.yscale('log')
+    plt.show()
 
-# Save the model data to a file
-sun.save_model('sun_model.txt')
+    # Plot pressure profile!
+    plt.figure(figsize=(10, 6))
+    plt.plot(r_norm, P, 'g-', linewidth=2)
+    plt.xlabel('r/R', fontsize=12)
+    plt.ylabel('Pressure (N/m^2)', fontsize=12)
+    plt.title('Pressure Profile for a Solar Mass Star', fontsize=14)
+    plt.grid(True)
+    plt.yscale('log')
+    plt.show()
+    
+    # Plot mass profile!
+    plt.figure(figsize=(10, 6))
+    plt.plot(r_norm, mass_fraction, 'm-', linewidth=2)
+    plt.xlabel('r/R', fontsize=12)
+    plt.ylabel('Mass Fraction (1 - Mr/Ms)', fontsize=12)
+    plt.title('Mass Profile for a Solar Mass Star', fontsize=14)
+    plt.grid(True)
+    plt.yscale('log')
+    plt.show()
 ```
+![DensProf](https://github.com/user-attachments/assets/7010c8c7-a6fc-40cd-a187-bf707c51c394)
+![MassProf](https://github.com/user-attachments/assets/4cf5b0ad-e7dc-4473-8d55-afe90fad4b11)
+![PressureProf](https://github.com/user-attachments/assets/84dace1c-b14b-45ed-bf51-9b6a637927a9)
+![TempProf](https://github.com/user-attachments/assets/b9f81676-bfbf-4f37-b13e-42bc3c773ddc)
 
 ## Requirements
 
