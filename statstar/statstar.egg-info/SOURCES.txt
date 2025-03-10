@@ -1,6 +1,0 @@
-setup.py
-statstar.egg-info/PKG-INFO
-statstar.egg-info/SOURCES.txt
-statstar.egg-info/dependency_links.txt
-statstar.egg-info/requires.txt
-statstar.egg-info/top_level.txt
